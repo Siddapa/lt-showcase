@@ -25,8 +25,9 @@ install:
 	sudo apt-get install openssl
 	wget https://github.com/eclipse-paho/paho.mqtt.c/archive/refs/tags/v1.3.14.tar.gz
 	tar -xzvf v1.3.14.tar.gz
-	cd v1.3.14
+	cd paho.mqtt.c-1.3.14
 	make
 	sudo make install
+	cd ..
 	rm -f v1.3.14.tar.gz
-	rm -rf v1.3.14
+	rm -rf paho.mqtt.c-v1.3.14
