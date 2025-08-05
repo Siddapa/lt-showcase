@@ -1,25 +1,25 @@
 all: publish_test subscribe_test
 
 publish_test: publish_test.o publish.o
-	gcc publish_test.o publish.o -o publish_test -lpaho-mqtt3c
+	gcc obj/publish_test.o obj/publish.o -o bin/publish_test -lpaho-mqtt3c
 
 subscribe_test: subscribe_test.o subscribe.o
-	gcc subscribe_test.o subscribe.o -o subscribe_test -lpaho-mqtt3c
+	gcc obj/subscribe_test.o obj/subscribe.o -o bin/subscribe_test -lpaho-mqtt3c
 
-publish_test.o: publish_test.c
-	gcc -c publish_test.c
+publish_test.o: src/publish_test.c
+	gcc -c src/publish_test.c -o obj/publish_test.o
 
-subscribe_test.o: subscribe_test.c
-	gcc -c subscribe_test.c
+subscribe_test.o: src/subscribe_test.c
+	gcc -c src/subscribe_test.c -o obj/subscribe_test.o
 
-publish.o: publish.c
-	gcc -c publish.c
+publish.o: src/publish.c
+	gcc -c src/publish.c -o obj/publish.o
 
-subscribe.o: subscribe.c
-	gcc -c subscribe.c
+subscribe.o: src/subscribe.c
+	gcc -c src/subscribe.c -o obj/subscribe.o
 
 clean:
-	rm -f publish_test subscribe_test publish.o subscribe.o publish_test.o subscribe_test.o
+	rm -rf bin/* obj/*
 
 install:
 	sudo apt-get install openssl
