@@ -5,4 +5,16 @@ This small project provides an example for creating a synchronous publisher and 
 # Installation
 ```
 make install
+make
+```
+
+
+# Testing
+The testing suite is broken up into `publish_test` and `subscribe_test` binaries. To test the integreation between both tests, `subscribe_test` should be run first with `publish_test` running in a separate process.
+```
+# First Process
+./bin/subscribe_test
+
+# Second Process
+./bin/publish_test
 ```
